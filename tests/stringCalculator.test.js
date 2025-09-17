@@ -1,8 +1,8 @@
 const { add } = require('../src/stringCalculator');
 
 describe('String Calculator', () => {
-  test('single number returns its value', () => {
-  expect(add("1")).toBe(1);
-  expect(add("7")).toBe(7);
+  test('two comma-separated numbers are summed', () => {
+  expect(add("1,5")).toBe(6);
+  expect(add("2,3")).toBe(5);
 });
 });
