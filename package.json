@@ -1,0 +1,16 @@
+{
+  "name": "incubyte-tdd",
+  "version": "1.0.0",
+  "description": "String Calculator TDD Project",
+  "main": "src/stringCalculator.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "keywords": ["tdd", "string-calculator", "jest"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^30.1.3"
+  }
+}
