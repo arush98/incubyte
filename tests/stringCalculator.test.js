@@ -36,4 +36,16 @@ describe('String Calculator', () => {
   test('handles mix with commas and newlines "7,8\\n9"', () => {
     expect(add("7,8\n9")).toBe(24);
   });
+  // Test 5: Custom delimiter
+  test('supports custom delimiter ";"', () => {
+    expect(add("//;\n1;2")).toBe(3);
+  });
+
+  test('supports custom delimiter "|"', () => {
+    expect(add("//|\n4|5|6")).toBe(15);
+  });
+
+  test('supports custom delimiter "-"', () => {
+    expect(add("//-\n7-8-9")).toBe(24);
+  });
 });
