@@ -14,8 +14,15 @@ function add(numbers) {
     numString = parts[1];
   }
 
-  const nums = numString.split(delimiter);
-  return nums.reduce((sum, n) => sum + Number(n), 0);
+  const nums = numString.split(delimiter).map(Number);
+
+  // Step 6: check for negatives
+  const negatives = nums.filter(n => n < 0);
+  if (negatives.length > 0) {
+    throw new Error(`negative numbers not allowed: ${negatives.join(",")}`);
+  }
+
+  return nums.reduce((sum, n) => sum + n, 0);
 }
 
 module.exports = { add };

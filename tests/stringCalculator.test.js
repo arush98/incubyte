@@ -48,4 +48,14 @@ describe('String Calculator', () => {
   test('supports custom delimiter "-"', () => {
     expect(add("//-\n7-8-9")).toBe(24);
   });
+
+  // Test 6: Negative numbers not allowed
+
+  test('throws an error when input contains a single negative number', () => {
+    expect(() => add("1,-2,3")).toThrow("negative numbers not allowed: -2");
+  });
+
+  test('throws an error listing all negative numbers if multiple are present', () => {
+    expect(() => add("2,-4,3,-5")).toThrow("negative numbers not allowed: -4,-5");
+  });
 });
