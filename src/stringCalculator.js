@@ -1,13 +1,15 @@
 function add(numbers) {
   if (numbers === "") return 0;
 
-  let delimiter = /[\n,]/;
+  let delimiter = /[\n,]/; // default delimiters
   let numString = numbers;
 
+  // Step 5: Check for custom delimiter
   if (numbers.startsWith("//")) {
     const parts = numbers.split("\n");
-    const rawDelimiter = parts[0].slice(2); 
+    const rawDelimiter = parts[0].slice(2);
 
+    // Escape regex special characters
     const escaped = rawDelimiter.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
     delimiter = new RegExp(escaped);
@@ -16,7 +18,7 @@ function add(numbers) {
 
   const nums = numString.split(delimiter).map(Number);
 
-  // Step 6: check for negatives
+  // Step 6: Handle negatives
   const negatives = nums.filter(n => n < 0);
   if (negatives.length > 0) {
     throw new Error(`negative numbers not allowed: ${negatives.join(",")}`);
